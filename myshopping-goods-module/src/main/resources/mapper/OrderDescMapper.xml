@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jc.books.mapper.OrderDescMapper">
+
+    <insert id="addOrderDesc">
+        insert into tbl_order_desc values
+        <foreach collection="orderDescList" separator="," item="desc">
+            (default,#{desc.order_id},#{desc.book_id},#{desc.desc_count})
+        </foreach>
+    </insert>
+
+</mapper>

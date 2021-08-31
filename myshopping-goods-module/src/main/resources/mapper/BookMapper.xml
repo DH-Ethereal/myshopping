@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jc.books.mapper.BookMapper">
+
+    <select id="queryBooksById" resultType="com.jc.books.model.Book">
+        select * from tbl_book
+        <where>
+            book_id in
+            <foreach collection="book_ids" open="(" close=")" separator="," item="book_id">
+                #{book_id}
+            </foreach>
+        </where>
+    </select>
+
+</mapper>

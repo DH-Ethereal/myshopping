@@ -1,0 +1,39 @@
+server:
+  servlet:
+    context-path: /
+  port: 8081
+logging:
+  level:
+    root: info
+    web: trace
+    com.jc.books.mapper: debug
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://47.98.173.209:3306/myshopping?useSSL=false&useUnicode=true&serverTimezone=UTC&characterEncoding=utf-8
+    username: root
+    password: 123456
+    druid:
+      initial-size: 10
+      max-active: 100
+      min-idle: 10
+      max-wait: 1000
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  redis:
+    host: 47.98.173.209
+    port: 6379
+    password: 123456
+    jedis:
+      pool:
+        max-active: 10
+        min-idle: 5
+        max-idle: 8
+        max-wait: 1000
+mybatis:
+  mapper-locations: /mapper/*Mapper.xml
+#pageHelper配置
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
